@@ -9,6 +9,9 @@ the result against those checks.
 Use it for repeatable searches, filters, forms, and checks in local or staging web
 apps. Each task gets a fresh browser context; the default is headless Chromium.
 
+Read [Faster browser workflows with Decisions and MCP](docs/article.md) for the
+build, release benchmark, and verification lessons behind v0.1.0.
+
 ## Install from source
 
 Requires Node.js 20.18 or newer and an OpenAI API key with Decisions API access.
@@ -87,12 +90,14 @@ environment variables available to the process that launches Codex:
 command = "node"
 args = ["/absolute/path/decisions-browser/bin/decisions-browser.mjs"]
 env_vars = ["OPENAI_API_KEY", "OPENAI_API_KEY_FILE", "BENCH_BROWSER_PATH"]
-tool_timeout_sec = 120
+tool_timeout_sec = 130
 ```
 
-Use only one registration method. For tasks longer than the default 60 seconds,
-set `tool_timeout_sec` higher than the task's `timeoutMs` (converted to seconds)
-so the controller can return its verification and error report.
+Use only one registration method. Set the host's `tool_timeout_sec` above the
+task's `timeoutMs` (converted to seconds), leaving time to return evidence. The
+130 second example exceeds the maximum task deadline of 120 seconds. CLI
+registration does not set this timeout; add it to the server's configuration
+table after registering if you use that method.
 See [official MCP setup documentation](https://learn.chatgpt.com/docs/extend/mcp?surface=cli)
 for host configuration. Local Codex configuration applies to supported local
 clients; ChatGPT web does not read it.
