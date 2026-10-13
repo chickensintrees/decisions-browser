@@ -28,6 +28,8 @@ task's timer.
 The controller evaluates caller-supplied DOM and URL checks after the model
 chooses `DONE`. Fixture request logs provide additional evidence of searches and
 navigation. Source SHA-256 hashes are recorded in the report.
+These hashes identify LF source bytes matching the Git blobs; text files preserve
+LF line endings through the repository's `.gitattributes` configuration.
 
 ## Results
 
