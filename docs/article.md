@@ -69,6 +69,33 @@ plus DOM-derived action descriptions. Both providers used the same controller
 behind one MCP call, so the measured ratios compare provider choice within this
 design; they do not quantify a separate gain from batching the loop.
 
+**OpenAI should make this a supported browser workflow in Codex and ChatGPT.**
+Its [Decisions documentation](https://developers.openai.com/api/docs/guides/decisions)
+advertises typed answers roughly ten times faster than Responses. Its
+[voice-to-Decisions example](https://developers.openai.com/api/docs/guides/decisions-voice)
+already demonstrates selecting browser actions and routing complex requests to
+a reasoning model. OpenAI has published both the primitive and the pattern.
+The advertised endpoint speed is separate from our measured workflow speedup.
+
+The [Codex changelog](https://learn.chatgpt.com/docs/changelog) already lists an
+opt-in Decisions comparison for Guardian, Codex's approval reviewer. That is
+real integration. As of October 13, I found no documented way in the
+[Computer Use guide](https://learn.chatgpt.com/docs/computer-use) to enable
+Decisions for the browser action loop. Internal routing remains unknown; the
+gap I can identify is the lack of a documented, supported path for the workflow
+we tested.
+
+For this experiment, getting that workflow into Codex meant building an MCP
+server, wiring Playwright, configuring an API credential, and installing a
+delegation skill. That is a lot of plumbing for a company that already provides
+the underlying capability. OpenAI should offer this workflow directly: let the
+main agent plan and handle exceptions, route suitable finite action choices
+through fast decisions, and return independently verified evidence. Keep the
+permission and origin boundaries, and publish task-level latency and success
+rates so users can judge the tradeoff. Our two-app benchmark motivates that
+product work; broader testing is still needed to establish its benefit in
+OpenAI's built-in tools.
+
 Release preparation included 38 automated checks, a fresh-clone installation,
 and a packaged-artifact MCP check. CI passed on Windows and Linux with Node 20
 and 24. The
