@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel search benchmark</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.5 system-ui, sans-serif; color: #20342e; background: #eef3ee; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { max-width: 1100px; margin: 32px auto; padding: 0 24px 40px; }
+    header { margin-bottom: 24px; }
+    .eyebrow { margin: 0; color: #597168; letter-spacing: .12em; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+    h1 { margin: 4px 0 8px; font-size: 32px; }
+    h2 { margin: 0 0 16px; font-size: 22px; }
+    p { margin: 0 0 12px; }
+    .task { padding: 14px 18px; background: #dceade; border-left: 4px solid #2b6952; }
+    form { display: flex; align-items: end; gap: 20px; flex-wrap: wrap; padding: 22px; background: white; border: 1px solid #cbd8cf; border-radius: 12px; }
+    .field { display: grid; gap: 6px; min-width: 200px; }
+    label { font-weight: 650; }
+    select { font: inherit; border: 1px solid #83998d; border-radius: 6px; padding: 9px 12px; background: white; }
+    .check { display: flex; align-items: center; gap: 8px; padding: 10px 0; }
+    input[type="checkbox"] { width: 20px; height: 20px; accent-color: #2b6952; }
+    button { font: inherit; font-weight: 650; padding: 10px 16px; border: 0; border-radius: 6px; background: #24644c; color: white; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: wait; }
+    button:hover:not(:disabled) { background: #184d39; }
+    :focus-visible { outline: 3px solid #d28b23; outline-offset: 3px; }
+    #status { min-height: 24px; margin: 18px 0; color: #52685c; }
+    #cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    article { display: flex; flex-direction: column; gap: 12px; padding: 20px; background: white; border: 1px solid #cbd8cf; border-radius: 10px; }
+    article h3 { margin: 0; font-size: 20px; }
+    article p { margin: 0; }
+    article button { margin-top: auto; align-self: start; }
+    .badge { align-self: start; padding: 2px 8px; border-radius: 4px; background: #e7ece8; font-size: 12px; font-weight: 700; }
+    .match { background: #dceade; color: #24563f; }
+    #detail { margin-top: 22px; padding: 24px; background: #fffaf0; border: 2px solid #bd974c; border-radius: 10px; }
+    dl { display: grid; grid-template-columns: 150px 1fr; gap: 8px 16px; margin: 0; }
+    dt { font-weight: 700; }
+    dd { margin: 0; }
+    [hidden] { display: none !important; }
+    @media (max-width: 800px) { #cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 550px) { #cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Local benchmark fixture</p>
+      <h1>Find your next stay</h1>
+      <p class="task">Task: choose Lisbon, Design, and Free cancellation. Search, then open Casa Flora.</p>
+    </header>
+    <form id="search-form">
+      <div class="field">
+        <label for="city">City</label>
+        <select id="city" name="city">
+          <option value="Lisbon">Lisbon</option>
+          <option value="Porto">Porto</option>
+          <option value="Madrid" selected>Madrid</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="style">Style</label>
+        <select id="style" name="style">
+          <option value="Design">Design</option>
+          <option value="Classic">Classic</option>
+          <option value="Business" selected>Business</option>
+        </select>
+      </div>
+      <label class="check" for="free-cancellation">
+        <input id="free-cancellation" name="freeCancellation" type="checkbox">
+        Free cancellation
+      </label>
+      <button id="search" type="submit">Search</button>
+    </form>
+    <p id="status" role="status" aria-live="polite">Choose your filters and search.</p>
+    <section id="results" aria-labelledby="results-heading" hidden>
+      <h2 id="results-heading">Matching stays and alternatives</h2>
+      <div id="cards"></div>
+    </section>
+    <section id="detail" role="region" aria-labelledby="detail-heading" hidden>
+      <h2 id="detail-heading">Hotel details</h2>
+      <dl id="detail-fields"></dl>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const hotels = [
+        { name: 'Casa Flora Porto', city: 'Porto', style: 'Design', freeCancellation: true },
+        { name: 'Casa Flora Classic', city: 'Lisbon', style: 'Classic', freeCancellation: true },
+        { name: 'Casa Flora Annex', city: 'Lisbon', style: 'Design', freeCancellation: false },
+        { name: 'Casa Flora', city: 'Lisbon', style: 'Design', freeCancellation: true },
+        { name: 'Casa Flor', city: 'Lisbon', style: 'Design', freeCancellation: true },
+        { name: 'Casa Flora Business', city: 'Madrid', style: 'Business', freeCancellation: true }
+      ];
+      const city = document.querySelector('#city');
+      const style = document.querySelector('#style');
+      const cancellation = document.querySelector('#free-cancellation');
+      const search = document.querySelector('#search');
+      const status = document.querySelector('#status');
+      const results = document.querySelector('#results');
+      const cards = document.querySelector('#cards');
+      const detail = document.querySelector('#detail');
+      const detailHeading = document.querySelector('#detail-heading');
+      const detailFields = document.querySelector('#detail-fields');
+      let searched = false;
+      let selectedHotel = null;
+      let requestVersion = 0;
+      let pendingTimer;
+
+      function readFilters() {
+        return { city: city.value, style: style.value, freeCancellation: cancellation.checked };
+      }
+
+      function invalidateSearch() {
+        requestVersion += 1;
+        clearTimeout(pendingTimer);
+        searched = false;
+        selectedHotel = null;
+        search.disabled = false;
+        results.hidden = true;
+        results.removeAttribute('aria-busy');
+        cards.replaceChildren();
+        detail.hidden = true;
+        detailFields.replaceChildren();
+        status.textContent = 'Filters changed. Search again to see current results.';
+      }
+
+      [city, style, cancellation].forEach(control => control.addEventListener('change', invalidateSearch));
+
+      function openHotel(hotel) {
+        selectedHotel = { ...hotel };
+        detailHeading.textContent = 'Hotel details: ' + hotel.name;
+        detailFields.replaceChildren();
+        const fields = [
+          ['Name', hotel.name],
+          ['City', hotel.city],
+          ['Style', hotel.style],
+          ['Cancellation', hotel.freeCancellation ? 'Free cancellation' : 'Non-refundable']
+        ];
+        for (const [label, value] of fields) {
+          const term = document.createElement('dt');
+          const description = document.createElement('dd');
+          term.textContent = label;
+          description.textContent = value;
+          detailFields.append(term, description);
+        }
+        detail.hidden = false;
+        status.textContent = 'Opened ' + hotel.name + '.';
+      }
+
+      function renderHotels(filters) {
+        cards.replaceChildren();
+        for (const hotel of hotels) {
+          const matches = hotel.city === filters.city && hotel.style === filters.style &&
+            (!filters.freeCancellation || hotel.freeCancellation);
+          const card = document.createElement('article');
+          const badge = document.createElement('span');
+          badge.className = 'badge' + (matches ? ' match' : '');
+          badge.textContent = matches ? 'Matches your filters' : 'Alternative stay';
+          const heading = document.createElement('h3');
+          heading.textContent = hotel.name;
+          const location = document.createElement('p');
+          location.textContent = hotel.city + ' | ' + hotel.style;
+          const policy = document.createElement('p');
+          policy.textContent = hotel.freeCancellation ? 'Free cancellation' : 'Non-refundable';
+          const open = document.createElement('button');
+          open.type = 'button';
+          open.textContent = 'Open ' + hotel.name;
+          open.addEventListener('click', () => openHotel(hotel));
+          card.append(badge, heading, location, policy, open);
+          cards.append(card);
+        }
+        results.hidden = false;
+      }
+
+      document.querySelector('#search-form').addEventListener('submit', event => {
+        event.preventDefault();
+        invalidateSearch();
+        const version = requestVersion;
+        const filters = readFilters();
+        search.disabled = true;
+        results.setAttribute('aria-busy', 'true');
+        status.textContent = 'Searching hotels...';
+        pendingTimer = setTimeout(() => {
+          if (version !== requestVersion) return;
+          searched = true;
+          renderHotels(filters);
+          results.removeAttribute('aria-busy');
+          search.disabled = false;
+          status.textContent = 'Search complete: ' + filters.city + ', ' + filters.style +
+            ', ' + (filters.freeCancellation ? 'free cancellation' : 'any cancellation policy') +
+            '. 6 stays including alternatives.';
+        }, 100);
+      });
+
+      window.getBenchmarkState = () => ({
+        searched,
+        filters: readFilters(),
+        detail: selectedHotel ? { ...selectedHotel } : null
+      });
+    })();
+  </script>
+</body>
+</html>

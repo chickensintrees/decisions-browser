@@ -1,0 +1,23 @@
+{
+  "name": "decisions-browser",
+  "version": "0.1.0",
+  "description": "Run bounded browser workflows through a local MCP tool with fast typed decisions and explicit completion checks.",
+  "license": "MIT",
+  "author": "Bill Moore",
+  "repository": { "type": "git", "url": "https://github.com/chickensintrees/decisions-browser.git" },
+  "engines": { "node": ">=20.18" },
+  "type": "module",
+  "bin": { "decisions-browser": "bin/decisions-browser.mjs" },
+  "exports": { ".": "./src/controller.mjs" },
+  "files": ["bin", "src", "providers.mjs", "runtime.mjs", "README.md", "LICENSE", "docs", "examples", "test/fixtures", "skills", "plugin.json", "mcp.json"],
+  "scripts": {
+    "test": "node scripts/test.mjs",
+    "smoke": "node benchmark.mjs --smoke",
+    "bench": "node benchmark.mjs",
+    "start": "node bin/decisions-browser.mjs",
+    "demo": "node examples/demo-server.mjs",
+    "check": "node scripts/check-release.mjs"
+  },
+  "dependencies": { "playwright": "1.62.1", "@modelcontextprotocol/server": "2.3.1", "zod": "4.6.7" },
+  "devDependencies": { "@modelcontextprotocol/client": "2.3.1" }
+}

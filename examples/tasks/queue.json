@@ -1,0 +1,18 @@
+{
+  "startUrl": "http://127.0.0.1:4173/queue",
+  "goal": "Find the open, unassigned maintenance ticket. Set Status to Open, enable Only unassigned, enter maintenance as the Ticket query and search. Open ticket 417 and confirm its subject, status, and owner.",
+  "provider": "decisions",
+  "observation": "text",
+  "textValues": [{ "name": "Ticket query", "value": "maintenance" }],
+  "checks": [
+    { "type": "url", "value": "/queue/ticket/417?", "match": "contains" },
+    { "type": "visible", "selector": "#ticket-id" },
+    { "type": "text", "selector": "#ticket-id", "value": "Ticket 417" },
+    { "type": "text", "selector": "#ticket-subject", "value": "Entrance door maintenance" },
+    { "type": "text", "selector": "#ticket-status", "value": "Open" },
+    { "type": "text", "selector": "#ticket-owner", "value": "Unassigned" }
+  ],
+  "maxSteps": 20,
+  "timeoutMs": 60000,
+  "headless": true
+}

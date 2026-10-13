@@ -1,0 +1,775 @@
+{
+  "timestamp": "2026-10-13T17:56:59.883Z",
+  "version": "0.1.0",
+  "protocol": {
+    "rounds": 1,
+    "tasks": [
+      "catalog",
+      "queue"
+    ],
+    "modes": [
+      "text"
+    ],
+    "alternatingOrder": true,
+    "retries": 0,
+    "timer": "MCP client call start through returned verified task result: includes browser startup, page loads, decisions, execution, checks, evidence capture, cleanup, and JSON-RPC transport.",
+    "observation": "Text uses rendered DOM and form state. Image supplies viewport screenshot plus DOM-derived action descriptions.",
+    "independentVerification": "The controller evaluates declared DOM/URL assertions after DONE. Fixture server request logs additionally show actual searches and navigation.",
+    "baseline": "Same gpt-6-luna, Responses strict JSON with reasoning effort none. One bounded MCP tool call owns each action loop. No ChatGPT built-in Computer Use timing."
+  },
+  "sourceHashes": {
+    "src/browser.mjs": "6c698ffa5e84417da9c089b587bfdf0c804e62e259996e8f670667fe0ae476e9",
+    "src/controller.mjs": "fe8d6223ce3cc99956202786b554c7a81b5af1049c54baf748552bf21c638d01",
+    "src/task-schema.mjs": "d7ed5f0378a973db3df56b860aa7d31021e0e90266a5b7310b2dbf01398035ee",
+    "src/server.mjs": "7048f5e912f2fcd96211e17853ccd9c4916febb6619ea84d5417059dedeb4605",
+    "bin/decisions-browser.mjs": "eaa186a803c611ca923fc7bb00f8aa4fb02ab929c2958a32f4fd10e1aaeaefee",
+    "providers.mjs": "05ba30dd8e975467b2e67a46ccb6cdd1771ba6264ce305887caa2bf10b8922af",
+    "runtime.mjs": "ed5ee666e125ee9eca60d3758d0ca9cb1390e9139830b7c42779ee17ab04ce63",
+    "test/fixtures/server.mjs": "cde7b88dddb649bf2994e7c25486d62807e8fdf48ed984f8d38bcb249a5492b2",
+    "package-lock.json": "1c1e2b432f90e7c264be8f71f0a95caf8b0aff52fd22e5353b300f62fbabde8a"
+  },
+  "summary": [
+    {
+      "task": "catalog",
+      "observation": "text",
+      "provider": "decisions",
+      "attempts": 1,
+      "verified": 0,
+      "medianMcpWallMsAllAttempts": 2525.2852,
+      "medianVerifiedMcpWallMs": null,
+      "medianModelMs": 156.86470000000008,
+      "modelRequests": 6,
+      "inputTokens": 4498,
+      "outputTokens": 0,
+      "returnedModels": [
+        "gpt-6-luna"
+      ]
+    },
+    {
+      "task": "catalog",
+      "observation": "text",
+      "provider": "responses",
+      "attempts": 1,
+      "verified": 0,
+      "medianMcpWallMsAllAttempts": 2870.8394000000003,
+      "medianVerifiedMcpWallMs": null,
+      "medianModelMs": null,
+      "modelRequests": 0,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "returnedModels": []
+    },
+    {
+      "task": "queue",
+      "observation": "text",
+      "provider": "decisions",
+      "attempts": 1,
+      "verified": 1,
+      "medianMcpWallMsAllAttempts": 2059.2194,
+      "medianVerifiedMcpWallMs": 2059.2194,
+      "medianModelMs": 172.3225999999995,
+      "modelRequests": 6,
+      "inputTokens": 3846,
+      "outputTokens": 0,
+      "returnedModels": [
+        "gpt-6-luna"
+      ]
+    },
+    {
+      "task": "queue",
+      "observation": "text",
+      "provider": "responses",
+      "attempts": 1,
+      "verified": 1,
+      "medianMcpWallMsAllAttempts": 8687.4268,
+      "medianVerifiedMcpWallMs": 8687.4268,
+      "medianModelMs": 1220.7734,
+      "modelRequests": 6,
+      "inputTokens": 3831,
+      "outputTokens": 83,
+      "returnedModels": [
+        "gpt-6-luna"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "task": "catalog",
+      "observation": "text",
+      "provider": "decisions",
+      "round": 1,
+      "wallMs": 2525.2852,
+      "result": {
+        "status": "verification_failed",
+        "verified": false,
+        "url": "http://127.0.0.1:62958/catalog/record/casa-flora?query=flora&city=Lisbon&style=Design&freeCancellation=false",
+        "title": "Stay details",
+        "checks": [
+          {
+            "type": "url",
+            "value": "/catalog/record/casa-flora?",
+            "match": "contains",
+            "actual": "http://127.0.0.1:62958/catalog/record/casa-flora?query=flora&city=Lisbon&style=Design&freeCancellation=false",
+            "passed": true
+          },
+          {
+            "type": "visible",
+            "selector": "#detail-name",
+            "actual": true,
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#detail-name",
+            "value": "Casa Flora",
+            "actual": "Casa Flora",
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#detail-city",
+            "value": "Lisbon",
+            "actual": "Lisbon",
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#detail-style",
+            "value": "Design",
+            "actual": "Design",
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#detail-policy",
+            "value": "Free cancellation",
+            "actual": "Free cancellation",
+            "passed": true
+          },
+          {
+            "type": "value",
+            "selector": "#detail-query",
+            "value": "flora",
+            "actual": "flora",
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#detail-filter-city",
+            "value": "Lisbon",
+            "actual": "Lisbon",
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#detail-filter-style",
+            "value": "Design",
+            "actual": "Design",
+            "passed": true
+          },
+          {
+            "type": "checked",
+            "selector": "#detail-free",
+            "value": true,
+            "actual": false,
+            "passed": false
+          },
+          {
+            "type": "count",
+            "selector": "#detail-name",
+            "value": 1,
+            "actual": 1,
+            "passed": true
+          }
+        ],
+        "extractedText": "Stay catalog | Support queue\nStay details\nCasa Flora\nCity\nLisbon\nStyle\nDesign\nPolicy\nFree cancellation\nInventory\nAvailable\nApplied search\nSearch query\n\nLisbon\n\nDesign\n\nFree cancellation selected",
+        "trace": [
+          {
+            "step": 1,
+            "total": 20,
+            "action": "Fill Search inventory with supplied Search inventory: \"flora\"",
+            "url": "http://127.0.0.1:62958/catalog",
+            "actionType": "fill",
+            "latencyMs": 485.8683000000001,
+            "model": "gpt-6-luna",
+            "confidence": 0.87,
+            "usage": {
+              "input_tokens": 692,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 692
+            }
+          },
+          {
+            "step": 2,
+            "total": 20,
+            "action": "Set City to Lisbon (currently Madrid)",
+            "url": "http://127.0.0.1:62958/catalog",
+            "actionType": "select",
+            "latencyMs": 104.80970000000002,
+            "model": "gpt-6-luna",
+            "confidence": 0.89,
+            "usage": {
+              "input_tokens": 704,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 704
+            }
+          },
+          {
+            "step": 3,
+            "total": 20,
+            "action": "Select Design radio option",
+            "url": "http://127.0.0.1:62958/catalog",
+            "actionType": "radio",
+            "latencyMs": 122.45359999999982,
+            "model": "gpt-6-luna",
+            "confidence": 0.96,
+            "usage": {
+              "input_tokens": 712,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 712
+            }
+          },
+          {
+            "step": 4,
+            "total": 20,
+            "action": "Click Search catalog. Nearby content: ",
+            "url": "http://127.0.0.1:62958/catalog",
+            "actionType": "click",
+            "latencyMs": 168.75969999999984,
+            "model": "gpt-6-luna",
+            "confidence": 0.93,
+            "usage": {
+              "input_tokens": 717,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 717
+            }
+          },
+          {
+            "step": 5,
+            "total": 20,
+            "action": "Click Open Casa Flora (link http://127.0.0.1:62958/catalog/record/casa-flora?query=flora&city=Lisbon&style=Design&freeCancellation=false). Nearby content: Casa Flora Lisbon | Design | Free cancellation Open Casa Flora",
+            "url": "http://127.0.0.1:62958/catalog",
+            "actionType": "click",
+            "latencyMs": 151.18870000000015,
+            "model": "gpt-6-luna",
+            "confidence": 0.99,
+            "usage": {
+              "input_tokens": 998,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 998
+            }
+          },
+          {
+            "step": 6,
+            "total": 20,
+            "action": "Finish: all supplied completion checks are satisfied by the current page.",
+            "url": "http://127.0.0.1:62958/catalog/record/casa-flora?query=flora&city=Lisbon&style=Design&freeCancellation=false",
+            "actionType": "done",
+            "latencyMs": 162.54070000000002,
+            "model": "gpt-6-luna",
+            "confidence": 0.95,
+            "usage": {
+              "input_tokens": 675,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 675
+            }
+          }
+        ],
+        "blockedRequests": [],
+        "error": null,
+        "evidence": {
+          "screenshotPath": "catalog-text-decisions-1.png"
+        },
+        "timing": {
+          "totalMs": 2512.325,
+          "modelMs": 1195.6207,
+          "modelRequests": 6
+        },
+        "limitations": "Fresh isolated browser. DOM-derived actions, including in image mode. No personal browser profile or native desktop control."
+      }
+    },
+    {
+      "task": "catalog",
+      "observation": "text",
+      "provider": "responses",
+      "round": 1,
+      "wallMs": 2870.8394000000003,
+      "result": {
+        "status": "error",
+        "verified": false,
+        "url": "http://127.0.0.1:62958/catalog",
+        "title": "Stay catalog",
+        "checks": [],
+        "extractedText": "",
+        "trace": [],
+        "blockedRequests": [],
+        "error": "Responses returned invalid decision JSON. No input executed.",
+        "evidence": {},
+        "timing": {
+          "totalMs": 2868.3453,
+          "modelMs": 0,
+          "modelRequests": 0
+        },
+        "limitations": "Fresh isolated browser. DOM-derived actions, including in image mode. No personal browser profile or native desktop control."
+      }
+    },
+    {
+      "task": "queue",
+      "observation": "text",
+      "provider": "decisions",
+      "round": 1,
+      "wallMs": 2059.2194,
+      "result": {
+        "status": "completed",
+        "verified": true,
+        "url": "http://127.0.0.1:62958/queue/ticket/417?query=maintenance&status=Open&unassigned=true",
+        "title": "Ticket details",
+        "checks": [
+          {
+            "type": "url",
+            "value": "/queue/ticket/417?",
+            "match": "contains",
+            "actual": "http://127.0.0.1:62958/queue/ticket/417?query=maintenance&status=Open&unassigned=true",
+            "passed": true
+          },
+          {
+            "type": "visible",
+            "selector": "#ticket-id",
+            "actual": true,
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#ticket-id",
+            "value": "Ticket 417",
+            "actual": "Ticket 417",
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#ticket-subject",
+            "value": "Entrance door maintenance",
+            "actual": "Entrance door maintenance",
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#ticket-status",
+            "value": "Open",
+            "actual": "Open",
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#ticket-owner",
+            "value": "Unassigned",
+            "actual": "Unassigned",
+            "passed": true
+          }
+        ],
+        "extractedText": "Stay catalog | Support queue\nTicket details\nTicket 417\nSubject\nEntrance door maintenance\nStatus\nOpen\nOwner\nUnassigned\n\nQuery: maintenance",
+        "trace": [
+          {
+            "step": 1,
+            "total": 20,
+            "action": "Set Status to Open (currently All)",
+            "url": "http://127.0.0.1:62958/queue",
+            "actionType": "select",
+            "latencyMs": 125.77759999999944,
+            "model": "gpt-6-luna",
+            "confidence": 0.43,
+            "usage": {
+              "input_tokens": 597,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 597
+            }
+          },
+          {
+            "step": 2,
+            "total": 20,
+            "action": "Fill Ticket query with supplied Ticket query: \"maintenance\"",
+            "url": "http://127.0.0.1:62958/queue",
+            "actionType": "fill",
+            "latencyMs": 175.5097999999998,
+            "model": "gpt-6-luna",
+            "confidence": 0.8,
+            "usage": {
+              "input_tokens": 607,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 607
+            }
+          },
+          {
+            "step": 3,
+            "total": 20,
+            "action": "Set Only unassigned to checked (currently unchecked)",
+            "url": "http://127.0.0.1:62958/queue",
+            "actionType": "check",
+            "latencyMs": 160.1787000000004,
+            "model": "gpt-6-luna",
+            "confidence": 0.93,
+            "usage": {
+              "input_tokens": 619,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 619
+            }
+          },
+          {
+            "step": 4,
+            "total": 20,
+            "action": "Click Search queue. Nearby content: ",
+            "url": "http://127.0.0.1:62958/queue",
+            "actionType": "click",
+            "latencyMs": 169.1353999999992,
+            "model": "gpt-6-luna",
+            "confidence": 0.98,
+            "usage": {
+              "input_tokens": 630,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 630
+            }
+          },
+          {
+            "step": 5,
+            "total": 20,
+            "action": "Click Open ticket 417 (link http://127.0.0.1:62958/queue/ticket/417?query=maintenance&status=Open&unassigned=true). Nearby content: 417 Entrance door maintenance Open Unassigned Open ticket 417",
+            "url": "http://127.0.0.1:62958/queue",
+            "actionType": "click",
+            "latencyMs": 300.5622999999996,
+            "model": "gpt-6-luna",
+            "confidence": 1,
+            "usage": {
+              "input_tokens": 801,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 801
+            }
+          },
+          {
+            "step": 6,
+            "total": 20,
+            "action": "Finish: all supplied completion checks are satisfied by the current page.",
+            "url": "http://127.0.0.1:62958/queue/ticket/417?query=maintenance&status=Open&unassigned=true",
+            "actionType": "done",
+            "latencyMs": 178.4348999999993,
+            "model": "gpt-6-luna",
+            "confidence": 0.98,
+            "usage": {
+              "input_tokens": 592,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 592
+            }
+          }
+        ],
+        "blockedRequests": [],
+        "error": null,
+        "evidence": {
+          "screenshotPath": "queue-text-decisions-1.png"
+        },
+        "timing": {
+          "totalMs": 2055.6800000000003,
+          "modelMs": 1109.5986999999977,
+          "modelRequests": 6
+        },
+        "limitations": "Fresh isolated browser. DOM-derived actions, including in image mode. No personal browser profile or native desktop control."
+      }
+    },
+    {
+      "task": "queue",
+      "observation": "text",
+      "provider": "responses",
+      "round": 1,
+      "wallMs": 8687.4268,
+      "result": {
+        "status": "completed",
+        "verified": true,
+        "url": "http://127.0.0.1:62958/queue/ticket/417?query=maintenance&status=Open&unassigned=true",
+        "title": "Ticket details",
+        "checks": [
+          {
+            "type": "url",
+            "value": "/queue/ticket/417?",
+            "match": "contains",
+            "actual": "http://127.0.0.1:62958/queue/ticket/417?query=maintenance&status=Open&unassigned=true",
+            "passed": true
+          },
+          {
+            "type": "visible",
+            "selector": "#ticket-id",
+            "actual": true,
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#ticket-id",
+            "value": "Ticket 417",
+            "actual": "Ticket 417",
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#ticket-subject",
+            "value": "Entrance door maintenance",
+            "actual": "Entrance door maintenance",
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#ticket-status",
+            "value": "Open",
+            "actual": "Open",
+            "passed": true
+          },
+          {
+            "type": "text",
+            "selector": "#ticket-owner",
+            "value": "Unassigned",
+            "actual": "Unassigned",
+            "passed": true
+          }
+        ],
+        "extractedText": "Stay catalog | Support queue\nTicket details\nTicket 417\nSubject\nEntrance door maintenance\nStatus\nOpen\nOwner\nUnassigned\n\nQuery: maintenance",
+        "trace": [
+          {
+            "step": 1,
+            "total": 20,
+            "action": "Set Status to Open (currently All)",
+            "url": "http://127.0.0.1:62958/queue",
+            "actionType": "select",
+            "latencyMs": 1280.4009999999998,
+            "model": "gpt-6-luna",
+            "confidence": null,
+            "usage": {
+              "input_tokens": 598,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 612
+            }
+          },
+          {
+            "step": 2,
+            "total": 20,
+            "action": "Set Only unassigned to checked (currently unchecked)",
+            "url": "http://127.0.0.1:62958/queue",
+            "actionType": "check",
+            "latencyMs": 1089.668599999999,
+            "model": "gpt-6-luna",
+            "confidence": null,
+            "usage": {
+              "input_tokens": 608,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 622
+            }
+          },
+          {
+            "step": 3,
+            "total": 20,
+            "action": "Fill Ticket query with supplied Ticket query: \"maintenance\"",
+            "url": "http://127.0.0.1:62958/queue",
+            "actionType": "fill",
+            "latencyMs": 1161.1458000000002,
+            "model": "gpt-6-luna",
+            "confidence": null,
+            "usage": {
+              "input_tokens": 619,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 633
+            }
+          },
+          {
+            "step": 4,
+            "total": 20,
+            "action": "Click Search queue. Nearby content: ",
+            "url": "http://127.0.0.1:62958/queue",
+            "actionType": "click",
+            "latencyMs": 1855.3907,
+            "model": "gpt-6-luna",
+            "confidence": null,
+            "usage": {
+              "input_tokens": 631,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 645
+            }
+          },
+          {
+            "step": 5,
+            "total": 20,
+            "action": "Click Open ticket 417 (link http://127.0.0.1:62958/queue/ticket/417?query=maintenance&status=Open&unassigned=true). Nearby content: 417 Entrance door maintenance Open Unassigned Open ticket 417",
+            "url": "http://127.0.0.1:62958/queue",
+            "actionType": "click",
+            "latencyMs": 1348.6761000000006,
+            "model": "gpt-6-luna",
+            "confidence": null,
+            "usage": {
+              "input_tokens": 812,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 826
+            }
+          },
+          {
+            "step": 6,
+            "total": 20,
+            "action": "Finish: all supplied completion checks are satisfied by the current page.",
+            "url": "http://127.0.0.1:62958/queue/ticket/417?query=maintenance&status=Open&unassigned=true",
+            "actionType": "done",
+            "latencyMs": 990.494999999999,
+            "model": "gpt-6-luna",
+            "confidence": null,
+            "usage": {
+              "input_tokens": 563,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 13,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 576
+            }
+          }
+        ],
+        "blockedRequests": [],
+        "error": null,
+        "evidence": {
+          "screenshotPath": "queue-text-responses-1.png"
+        },
+        "timing": {
+          "totalMs": 8682.509300000002,
+          "modelMs": 7725.777199999999,
+          "modelRequests": 6
+        },
+        "limitations": "Fresh isolated browser. DOM-derived actions, including in image mode. No personal browser profile or native desktop control."
+      }
+    }
+  ],
+  "fixtureRequests": [
+    "/catalog",
+    "/catalog/search?query=flora&city=Lisbon&style=Design&freeCancellation=false",
+    "/catalog/record/casa-flora?query=flora&city=Lisbon&style=Design&freeCancellation=false",
+    "/catalog",
+    "/queue",
+    "/queue/search?query=maintenance&status=Open&unassigned=true",
+    "/queue/ticket/417?query=maintenance&status=Open&unassigned=true",
+    "/queue",
+    "/queue/search?query=maintenance&status=Open&unassigned=true",
+    "/queue/ticket/417?query=maintenance&status=Open&unassigned=true"
+  ]
+}

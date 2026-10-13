@@ -1,0 +1,10 @@
+node_modules/
+.env
+*.key
+results/
+browser-profile/
+artifacts/
+*.tgz
+release/
+*.txt
+!requirements.txt

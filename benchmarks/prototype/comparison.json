@@ -1,0 +1,45 @@
+{
+  "measuredAt": "2026-10-13T17:40:04.377Z",
+  "comparisons": [
+    {
+      "observation": "Rendered DOM text, form values, and available action descriptions",
+      "runsPerProvider": 5,
+      "decisionsMedianTaskSeconds": 1.3896094,
+      "responsesMedianTaskSeconds": 8.683615300000005,
+      "taskSpeedup": 6.248961254867738,
+      "decisionsMedianApiMs": 151.50345000000277,
+      "responsesMedianApiMs": 1277.569550000002,
+      "returnedModels": [
+        "gpt-6-luna"
+      ],
+      "report": "./text/report.json"
+    },
+    {
+      "observation": "Screenshot plus DOM-derived available action descriptions",
+      "runsPerProvider": 5,
+      "decisionsMedianTaskSeconds": 1.9185112000000009,
+      "responsesMedianTaskSeconds": 7.395453300000001,
+      "taskSpeedup": 3.854787660348294,
+      "decisionsMedianApiMs": 211.07630000000063,
+      "responsesMedianApiMs": 1052.7029000000002,
+      "returnedModels": [
+        "gpt-6-luna"
+      ],
+      "report": "./image/report.json"
+    }
+  ],
+  "limits": [
+    "One synthetic local hotel-search task; five fresh browser contexts per provider per input mode.",
+    "Image trials have DOM assistance; this is not screenshot-only or native desktop automation.",
+    "This measures a custom controller, not ChatGPT built-in Computer Use.",
+    "Jev adapter was reviewed but not tested live because no TypeSafe credential was provided.",
+    "Controller source gained image mode after text trials. Delivery hashes identify the final files, not a captured execution snapshot of the earlier text trials."
+  ],
+  "sourceAtDelivery": {
+    "benchmark.mjs": "dc22e37587e515c98ff6ef118739b9a789ab6c99e07991fc5e1255790fd2e7c7",
+    "providers.mjs": "88a50f8f5761492cd3db4ea6d5706943be0b451a0f2729d73d3209392d2eaf21",
+    "runtime.mjs": "c7c2bda4acfc549c3e89fc15919f17d614e4faf5463c6f0123e5f03779c1f98f",
+    "verifier.mjs": "9bff8613b85711e9b1fdc9f51e1639cc6010ce3c2101f723d1cfd0bab7d926ef",
+    "fixture.html": "ac085797643238a85b02bf8e7bb8c58ccf193f8761064bd35c0dfe6944b49610"
+  }
+}

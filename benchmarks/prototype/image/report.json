@@ -1,0 +1,1593 @@
+{
+  "timestamp": "2026-10-13T17:38:25.344Z",
+  "mode": "live API image decision loops",
+  "goal": "Choose city Lisbon, style Design, and enable Free cancellation. Search, then open the exact hotel Casa Flora. Finish only when its detail confirms Lisbon, Design, and Free cancellation.",
+  "fixtureSha256": "ac085797643238a85b02bf8e7bb8c58ccf193f8761064bd35c0dfe6944b49610",
+  "protocol": {
+    "repeats": 5,
+    "freshContextEachAttempt": true,
+    "alternatingOrder": true,
+    "maximumSteps": 20,
+    "retries": 0,
+    "responsesReasoningEffort": "none",
+    "viewport": [
+      1120,
+      1000
+    ],
+    "observation": "Full-page screenshot at each step, plus DOM-derived available action descriptions. No body text or controls state provided separately.",
+    "taskTimer": "Includes local page navigation, DOM observation, per-step image capture when enabled, model requests, UI execution, 100ms search loading, and independent verification after DONE. Excludes shared browser startup, context creation, final evidence screenshot, and context cleanup.",
+    "scope": "One synthetic local hotel task. Measures a custom browser controller, not ChatGPT built-in Computer Use. No external browsing, personal browser profile, payment, or booking."
+  },
+  "summary": [
+    {
+      "provider": "decisions",
+      "attempts": 5,
+      "passed": 5,
+      "medianTaskMsAllAttempts": 1918.5112000000008,
+      "medianSuccessfulTaskMs": 1918.5112000000008,
+      "medianModelMs": 211.07630000000063,
+      "requests": 30,
+      "inputTokens": 46310,
+      "outputTokens": 0,
+      "returnedModels": [
+        "gpt-6-luna"
+      ]
+    },
+    {
+      "provider": "responses",
+      "attempts": 5,
+      "passed": 5,
+      "medianTaskMsAllAttempts": 7395.453300000001,
+      "medianSuccessfulTaskMs": 7395.453300000001,
+      "medianModelMs": 1052.7029000000002,
+      "requests": 30,
+      "inputTokens": 53220,
+      "outputTokens": 421,
+      "returnedModels": [
+        "gpt-6-luna"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "provider": "decisions",
+      "round": 1,
+      "elapsedMs": 1989.812,
+      "passed": true,
+      "error": null,
+      "verification": {
+        "passed": true,
+        "errors": []
+      },
+      "finalState": {
+        "searched": true,
+        "filters": {
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        },
+        "detail": {
+          "name": "Casa Flora",
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        }
+      },
+      "screenshot": "decisions-1.png",
+      "trace": [
+        {
+          "step": 1,
+          "action": "Set City to Lisbon (currently Madrid)",
+          "actionType": "select",
+          "choice": "a0",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1425,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1425
+          },
+          "latencyMs": 279.80629999999996
+        },
+        {
+          "step": 2,
+          "action": "Set Style to Design (currently Business)",
+          "actionType": "select",
+          "choice": "a2",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1434,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1434
+          },
+          "latencyMs": 215.76789999999983
+        },
+        {
+          "step": 3,
+          "action": "Set Free cancellation to checked (currently unchecked)",
+          "actionType": "check",
+          "choice": "a4",
+          "confidence": 0.97,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1443,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1443
+          },
+          "latencyMs": 253.34349999999995
+        },
+        {
+          "step": 4,
+          "action": "Click Search. Nearby visible content: ",
+          "actionType": "click",
+          "choice": "a5",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1453,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1453
+          },
+          "latencyMs": 209.24710000000005
+        },
+        {
+          "step": 5,
+          "action": "Click Open Casa Flora. Nearby visible content: Matches your filters Casa Flora Lisbon | Design Free cancellation Open Casa Flora",
+          "actionType": "click",
+          "choice": "a9",
+          "confidence": 0.98,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1637,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1637
+          },
+          "latencyMs": 227.13769999999977
+        },
+        {
+          "step": 6,
+          "action": "Finish: the requested filters, completed search, and correct hotel detail are all visible.",
+          "actionType": "done",
+          "choice": "DONE",
+          "confidence": 0.88,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1870,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1870
+          },
+          "latencyMs": 195.3783999999996
+        }
+      ]
+    },
+    {
+      "provider": "responses",
+      "round": 1,
+      "elapsedMs": 8881.6348,
+      "passed": true,
+      "error": null,
+      "verification": {
+        "passed": true,
+        "errors": []
+      },
+      "finalState": {
+        "searched": true,
+        "filters": {
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        },
+        "detail": {
+          "name": "Casa Flora",
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        }
+      },
+      "screenshot": "responses-1.png",
+      "trace": [
+        {
+          "step": 1,
+          "action": "Set City to Lisbon (currently Madrid)",
+          "actionType": "select",
+          "choice": "a0",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1639,
+            "input_tokens_details": {
+              "cache_write_tokens": 1636,
+              "cached_tokens": 0
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1653
+          },
+          "latencyMs": 1199.0701000000004
+        },
+        {
+          "step": 2,
+          "action": "Set Style to Design (currently Business)",
+          "actionType": "select",
+          "choice": "a2",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1647,
+            "input_tokens_details": {
+              "cache_write_tokens": 1644,
+              "cached_tokens": 0
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1661
+          },
+          "latencyMs": 2965.1102
+        },
+        {
+          "step": 3,
+          "action": "Set Free cancellation to checked (currently unchecked)",
+          "actionType": "check",
+          "choice": "a4",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1656,
+            "input_tokens_details": {
+              "cache_write_tokens": 1653,
+              "cached_tokens": 0
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1670
+          },
+          "latencyMs": 959.7903000000006
+        },
+        {
+          "step": 4,
+          "action": "Click Search. Nearby visible content: ",
+          "actionType": "click",
+          "choice": "a5",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1666,
+            "input_tokens_details": {
+              "cache_write_tokens": 1663,
+              "cached_tokens": 0
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1680
+          },
+          "latencyMs": 1066.6484
+        },
+        {
+          "step": 5,
+          "action": "Click Open Casa Flora. Nearby visible content: Matches your filters Casa Flora Lisbon | Design Free cancellation Open Casa Flora",
+          "actionType": "click",
+          "choice": "a9",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1881,
+            "input_tokens_details": {
+              "cache_write_tokens": 1878,
+              "cached_tokens": 0
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1895
+          },
+          "latencyMs": 977.4867999999988
+        },
+        {
+          "step": 6,
+          "action": "Finish: the requested filters, completed search, and correct hotel detail are all visible.",
+          "actionType": "done",
+          "choice": "DONE",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 2155,
+            "input_tokens_details": {
+              "cache_write_tokens": 2152,
+              "cached_tokens": 0
+            },
+            "output_tokens": 13,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 2168
+          },
+          "latencyMs": 1131.1898
+        }
+      ]
+    },
+    {
+      "provider": "responses",
+      "round": 2,
+      "elapsedMs": 6963.272400000002,
+      "passed": true,
+      "error": null,
+      "verification": {
+        "passed": true,
+        "errors": []
+      },
+      "finalState": {
+        "searched": true,
+        "filters": {
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        },
+        "detail": {
+          "name": "Casa Flora",
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        }
+      },
+      "screenshot": "responses-2.png",
+      "trace": [
+        {
+          "step": 1,
+          "action": "Set City to Lisbon (currently Madrid)",
+          "actionType": "select",
+          "choice": "a0",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1639,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1636
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1653
+          },
+          "latencyMs": 1279.537400000001
+        },
+        {
+          "step": 2,
+          "action": "Set Style to Design (currently Business)",
+          "actionType": "select",
+          "choice": "a2",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1647,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1644
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1661
+          },
+          "latencyMs": 1082.8133000000016
+        },
+        {
+          "step": 3,
+          "action": "Set Free cancellation to checked (currently unchecked)",
+          "actionType": "check",
+          "choice": "a4",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1656,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1653
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1670
+          },
+          "latencyMs": 930.7805000000008
+        },
+        {
+          "step": 4,
+          "action": "Click Search. Nearby visible content: ",
+          "actionType": "click",
+          "choice": "a5",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1666,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1663
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1680
+          },
+          "latencyMs": 972.1963000000014
+        },
+        {
+          "step": 5,
+          "action": "Click Open Casa Flora. Nearby visible content: Matches your filters Casa Flora Lisbon | Design Free cancellation Open Casa Flora",
+          "actionType": "click",
+          "choice": "a9",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1881,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1878
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1895
+          },
+          "latencyMs": 944.2986999999994
+        },
+        {
+          "step": 6,
+          "action": "Finish: the requested filters, completed search, and correct hotel detail are all visible.",
+          "actionType": "done",
+          "choice": "DONE",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 2155,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 2152
+            },
+            "output_tokens": 13,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 2168
+          },
+          "latencyMs": 1179.3918000000012
+        }
+      ]
+    },
+    {
+      "provider": "decisions",
+      "round": 2,
+      "elapsedMs": 1918.5112000000008,
+      "passed": true,
+      "error": null,
+      "verification": {
+        "passed": true,
+        "errors": []
+      },
+      "finalState": {
+        "searched": true,
+        "filters": {
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        },
+        "detail": {
+          "name": "Casa Flora",
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        }
+      },
+      "screenshot": "decisions-2.png",
+      "trace": [
+        {
+          "step": 1,
+          "action": "Set City to Lisbon (currently Madrid)",
+          "actionType": "select",
+          "choice": "a0",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1425,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1425
+          },
+          "latencyMs": 156.6311999999998
+        },
+        {
+          "step": 2,
+          "action": "Set Style to Design (currently Business)",
+          "actionType": "select",
+          "choice": "a2",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1434,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1434
+          },
+          "latencyMs": 175.09720000000016
+        },
+        {
+          "step": 3,
+          "action": "Set Free cancellation to checked (currently unchecked)",
+          "actionType": "check",
+          "choice": "a4",
+          "confidence": 0.97,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1443,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1443
+          },
+          "latencyMs": 182.16859999999724
+        },
+        {
+          "step": 4,
+          "action": "Click Search. Nearby visible content: ",
+          "actionType": "click",
+          "choice": "a5",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1453,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1453
+          },
+          "latencyMs": 180.64579999999842
+        },
+        {
+          "step": 5,
+          "action": "Click Open Casa Flora. Nearby visible content: Matches your filters Casa Flora Lisbon | Design Free cancellation Open Casa Flora",
+          "actionType": "click",
+          "choice": "a9",
+          "confidence": 0.98,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1637,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1637
+          },
+          "latencyMs": 461.78470000000016
+        },
+        {
+          "step": 6,
+          "action": "Finish: the requested filters, completed search, and correct hotel detail are all visible.",
+          "actionType": "done",
+          "choice": "DONE",
+          "confidence": 0.88,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1870,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1870
+          },
+          "latencyMs": 191.48370000000068
+        }
+      ]
+    },
+    {
+      "provider": "decisions",
+      "round": 3,
+      "elapsedMs": 1711.0557000000008,
+      "passed": true,
+      "error": null,
+      "verification": {
+        "passed": true,
+        "errors": []
+      },
+      "finalState": {
+        "searched": true,
+        "filters": {
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        },
+        "detail": {
+          "name": "Casa Flora",
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        }
+      },
+      "screenshot": "decisions-3.png",
+      "trace": [
+        {
+          "step": 1,
+          "action": "Set City to Lisbon (currently Madrid)",
+          "actionType": "select",
+          "choice": "a0",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1425,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1425
+          },
+          "latencyMs": 225.47620000000097
+        },
+        {
+          "step": 2,
+          "action": "Set Style to Design (currently Business)",
+          "actionType": "select",
+          "choice": "a2",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1434,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1434
+          },
+          "latencyMs": 191.95420000000013
+        },
+        {
+          "step": 3,
+          "action": "Set Free cancellation to checked (currently unchecked)",
+          "actionType": "check",
+          "choice": "a4",
+          "confidence": 0.97,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1443,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1443
+          },
+          "latencyMs": 193.67849999999817
+        },
+        {
+          "step": 4,
+          "action": "Click Search. Nearby visible content: ",
+          "actionType": "click",
+          "choice": "a5",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1453,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1453
+          },
+          "latencyMs": 196.97550000000047
+        },
+        {
+          "step": 5,
+          "action": "Click Open Casa Flora. Nearby visible content: Matches your filters Casa Flora Lisbon | Design Free cancellation Open Casa Flora",
+          "actionType": "click",
+          "choice": "a9",
+          "confidence": 0.98,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1637,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1637
+          },
+          "latencyMs": 134.5453000000016
+        },
+        {
+          "step": 6,
+          "action": "Finish: the requested filters, completed search, and correct hotel detail are all visible.",
+          "actionType": "done",
+          "choice": "DONE",
+          "confidence": 0.88,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1870,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1870
+          },
+          "latencyMs": 194.34609999999884
+        }
+      ]
+    },
+    {
+      "provider": "responses",
+      "round": 3,
+      "elapsedMs": 9910.035499999998,
+      "passed": true,
+      "error": null,
+      "verification": {
+        "passed": true,
+        "errors": []
+      },
+      "finalState": {
+        "searched": true,
+        "filters": {
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        },
+        "detail": {
+          "name": "Casa Flora",
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        }
+      },
+      "screenshot": "responses-3.png",
+      "trace": [
+        {
+          "step": 1,
+          "action": "Set City to Lisbon (currently Madrid)",
+          "actionType": "select",
+          "choice": "a0",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1639,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1636
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1653
+          },
+          "latencyMs": 955.8883000000023
+        },
+        {
+          "step": 2,
+          "action": "Set Style to Design (currently Business)",
+          "actionType": "select",
+          "choice": "a2",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1647,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1644
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1661
+          },
+          "latencyMs": 1718.522100000002
+        },
+        {
+          "step": 3,
+          "action": "Set Free cancellation to checked (currently unchecked)",
+          "actionType": "check",
+          "choice": "a4",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1656,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1653
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1670
+          },
+          "latencyMs": 870.3239999999969
+        },
+        {
+          "step": 4,
+          "action": "Click Search. Nearby visible content: ",
+          "actionType": "click",
+          "choice": "a5",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1666,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1663
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1680
+          },
+          "latencyMs": 3977.666100000002
+        },
+        {
+          "step": 5,
+          "action": "Click Open Casa Flora. Nearby visible content: Matches your filters Casa Flora Lisbon | Design Free cancellation Open Casa Flora",
+          "actionType": "click",
+          "choice": "a9",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1881,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1878
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1895
+          },
+          "latencyMs": 801.0413999999982
+        },
+        {
+          "step": 6,
+          "action": "Finish: the requested filters, completed search, and correct hotel detail are all visible.",
+          "actionType": "done",
+          "choice": "DONE",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 2155,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 2152
+            },
+            "output_tokens": 13,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 2168
+          },
+          "latencyMs": 1032.2038999999968
+        }
+      ]
+    },
+    {
+      "provider": "responses",
+      "round": 4,
+      "elapsedMs": 7395.453300000001,
+      "passed": true,
+      "error": null,
+      "verification": {
+        "passed": true,
+        "errors": []
+      },
+      "finalState": {
+        "searched": true,
+        "filters": {
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        },
+        "detail": {
+          "name": "Casa Flora",
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        }
+      },
+      "screenshot": "responses-4.png",
+      "trace": [
+        {
+          "step": 1,
+          "action": "Set City to Lisbon (currently Madrid)",
+          "actionType": "select",
+          "choice": "a0",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1639,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1636
+            },
+            "output_tokens": 20,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1659
+          },
+          "latencyMs": 1042.0051999999996
+        },
+        {
+          "step": 2,
+          "action": "Set Style to Design (currently Business)",
+          "actionType": "select",
+          "choice": "a2",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1647,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1644
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1661
+          },
+          "latencyMs": 1145.2116999999998
+        },
+        {
+          "step": 3,
+          "action": "Set Free cancellation to checked (currently unchecked)",
+          "actionType": "check",
+          "choice": "a4",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1656,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1653
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1670
+          },
+          "latencyMs": 997.7468999999983
+        },
+        {
+          "step": 4,
+          "action": "Click Search. Nearby visible content: ",
+          "actionType": "click",
+          "choice": "a5",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1666,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1663
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1680
+          },
+          "latencyMs": 1063.4006000000008
+        },
+        {
+          "step": 5,
+          "action": "Click Open Casa Flora. Nearby visible content: Matches your filters Casa Flora Lisbon | Design Free cancellation Open Casa Flora",
+          "actionType": "click",
+          "choice": "a9",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1881,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1878
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1895
+          },
+          "latencyMs": 1383.345500000003
+        },
+        {
+          "step": 6,
+          "action": "Finish: the requested filters, completed search, and correct hotel detail are all visible.",
+          "actionType": "done",
+          "choice": "DONE",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 2155,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 2152
+            },
+            "output_tokens": 13,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 2168
+          },
+          "latencyMs": 1187.2850000000035
+        }
+      ]
+    },
+    {
+      "provider": "decisions",
+      "round": 4,
+      "elapsedMs": 3002.930999999997,
+      "passed": true,
+      "error": null,
+      "verification": {
+        "passed": true,
+        "errors": []
+      },
+      "finalState": {
+        "searched": true,
+        "filters": {
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        },
+        "detail": {
+          "name": "Casa Flora",
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        }
+      },
+      "screenshot": "decisions-4.png",
+      "trace": [
+        {
+          "step": 1,
+          "action": "Set City to Lisbon (currently Madrid)",
+          "actionType": "select",
+          "choice": "a0",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1425,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1425
+          },
+          "latencyMs": 194.1377999999968
+        },
+        {
+          "step": 2,
+          "action": "Set Style to Design (currently Business)",
+          "actionType": "select",
+          "choice": "a2",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1434,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1434
+          },
+          "latencyMs": 664.2381999999998
+        },
+        {
+          "step": 3,
+          "action": "Set Free cancellation to checked (currently unchecked)",
+          "actionType": "check",
+          "choice": "a4",
+          "confidence": 0.97,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1443,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1443
+          },
+          "latencyMs": 248.7300000000032
+        },
+        {
+          "step": 4,
+          "action": "Click Search. Nearby visible content: ",
+          "actionType": "click",
+          "choice": "a5",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1453,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1453
+          },
+          "latencyMs": 217.3064000000013
+        },
+        {
+          "step": 5,
+          "action": "Click Open Casa Flora. Nearby visible content: Matches your filters Casa Flora Lisbon | Design Free cancellation Open Casa Flora",
+          "actionType": "click",
+          "choice": "a9",
+          "confidence": 0.98,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1637,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1637
+          },
+          "latencyMs": 212.0596000000005
+        },
+        {
+          "step": 6,
+          "action": "Finish: the requested filters, completed search, and correct hotel detail are all visible.",
+          "actionType": "done",
+          "choice": "DONE",
+          "confidence": 0.88,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1870,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1870
+          },
+          "latencyMs": 866.3054000000047
+        }
+      ]
+    },
+    {
+      "provider": "decisions",
+      "round": 5,
+      "elapsedMs": 1880.1140000000014,
+      "passed": true,
+      "error": null,
+      "verification": {
+        "passed": true,
+        "errors": []
+      },
+      "finalState": {
+        "searched": true,
+        "filters": {
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        },
+        "detail": {
+          "name": "Casa Flora",
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        }
+      },
+      "screenshot": "decisions-5.png",
+      "trace": [
+        {
+          "step": 1,
+          "action": "Set City to Lisbon (currently Madrid)",
+          "actionType": "select",
+          "choice": "a0",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1425,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1425
+          },
+          "latencyMs": 251.27209999999468
+        },
+        {
+          "step": 2,
+          "action": "Set Style to Design (currently Business)",
+          "actionType": "select",
+          "choice": "a2",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1434,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1434
+          },
+          "latencyMs": 224.0766999999978
+        },
+        {
+          "step": 3,
+          "action": "Set Free cancellation to checked (currently unchecked)",
+          "actionType": "check",
+          "choice": "a4",
+          "confidence": 0.97,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1443,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1443
+          },
+          "latencyMs": 210.09300000000076
+        },
+        {
+          "step": 4,
+          "action": "Click Search. Nearby visible content: ",
+          "actionType": "click",
+          "choice": "a5",
+          "confidence": 1,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1453,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1453
+          },
+          "latencyMs": 266.37890000000334
+        },
+        {
+          "step": 5,
+          "action": "Click Open Casa Flora. Nearby visible content: Matches your filters Casa Flora Lisbon | Design Free cancellation Open Casa Flora",
+          "actionType": "click",
+          "choice": "a9",
+          "confidence": 0.98,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1637,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1637
+          },
+          "latencyMs": 214.42779999999766
+        },
+        {
+          "step": 6,
+          "action": "Finish: the requested filters, completed search, and correct hotel detail are all visible.",
+          "actionType": "done",
+          "choice": "DONE",
+          "confidence": 0.88,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1870,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1870
+          },
+          "latencyMs": 178.05400000000373
+        }
+      ]
+    },
+    {
+      "provider": "responses",
+      "round": 5,
+      "elapsedMs": 6768.861499999999,
+      "passed": true,
+      "error": null,
+      "verification": {
+        "passed": true,
+        "errors": []
+      },
+      "finalState": {
+        "searched": true,
+        "filters": {
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        },
+        "detail": {
+          "name": "Casa Flora",
+          "city": "Lisbon",
+          "style": "Design",
+          "freeCancellation": true
+        }
+      },
+      "screenshot": "responses-5.png",
+      "trace": [
+        {
+          "step": 1,
+          "action": "Set City to Lisbon (currently Madrid)",
+          "actionType": "select",
+          "choice": "a0",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1639,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1636
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1653
+          },
+          "latencyMs": 941.3185000000012
+        },
+        {
+          "step": 2,
+          "action": "Set Style to Design (currently Business)",
+          "actionType": "select",
+          "choice": "a2",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1647,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1644
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1661
+          },
+          "latencyMs": 1273.3727999999974
+        },
+        {
+          "step": 3,
+          "action": "Set Free cancellation to checked (currently unchecked)",
+          "actionType": "check",
+          "choice": "a4",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1656,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1653
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1670
+          },
+          "latencyMs": 993.1261000000013
+        },
+        {
+          "step": 4,
+          "action": "Click Search. Nearby visible content: ",
+          "actionType": "click",
+          "choice": "a5",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1666,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1663
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1680
+          },
+          "latencyMs": 1282.1333000000013
+        },
+        {
+          "step": 5,
+          "action": "Click Open Casa Flora. Nearby visible content: Matches your filters Casa Flora Lisbon | Design Free cancellation Open Casa Flora",
+          "actionType": "click",
+          "choice": "a9",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 1881,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 1878
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 1895
+          },
+          "latencyMs": 860.8014000000039
+        },
+        {
+          "step": 6,
+          "action": "Finish: the requested filters, completed search, and correct hotel detail are all visible.",
+          "actionType": "done",
+          "choice": "DONE",
+          "confidence": null,
+          "model": "gpt-6-luna",
+          "usage": {
+            "input_tokens": 2155,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 2152
+            },
+            "output_tokens": 13,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 2168
+          },
+          "latencyMs": 881.6466
+        }
+      ]
+    }
+  ]
+}

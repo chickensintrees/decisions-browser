@@ -1,0 +1,23 @@
+{
+  "startUrl": "http://127.0.0.1:4173/catalog",
+  "goal": "Fill Search inventory with flora. Set City to Lisbon, select the Design radio option, and enable the Free cancellation checkbox BEFORE clicking Search catalog. Open Casa Flora. Confirm the detail and applied filters show query flora, city Lisbon, style Design, and the free cancellation checkbox checked.",
+  "provider": "decisions",
+  "observation": "text",
+  "textValues": [{ "name": "Search inventory", "value": "flora" }],
+  "checks": [
+    { "type": "url", "value": "/catalog/record/casa-flora?", "match": "contains" },
+    { "type": "visible", "selector": "#detail-name" },
+    { "type": "text", "selector": "#detail-name", "value": "Casa Flora" },
+    { "type": "text", "selector": "#detail-city", "value": "Lisbon" },
+    { "type": "text", "selector": "#detail-style", "value": "Design" },
+    { "type": "text", "selector": "#detail-policy", "value": "Free cancellation" },
+    { "type": "value", "selector": "#detail-query", "value": "flora" },
+    { "type": "text", "selector": "#detail-filter-city", "value": "Lisbon" },
+    { "type": "text", "selector": "#detail-filter-style", "value": "Design" },
+    { "type": "checked", "selector": "#detail-free", "value": true },
+    { "type": "count", "selector": "#detail-name", "value": 1 }
+  ],
+  "maxSteps": 20,
+  "timeoutMs": 60000,
+  "headless": true
+}
