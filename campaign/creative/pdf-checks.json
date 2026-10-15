@@ -1,0 +1,33 @@
+{
+  "file": "decisions-browser-carousel.pdf",
+  "pages": 4,
+  "pagePoints": [
+    {
+      "width": 810.0,
+      "height": 1013.03998
+    },
+    {
+      "width": 810.0,
+      "height": 1013.03998
+    },
+    {
+      "width": 810.0,
+      "height": 1013.03998
+    },
+    {
+      "width": 810.0,
+      "height": 1013.03998
+    }
+  ],
+  "canvasPixels": {
+    "width": 1080,
+    "height": 1350
+  },
+  "selectableText": true,
+  "requiredTextPassed": true,
+  "metadataHasNoLocalPaths": true,
+  "localFileLinks": false,
+  "annotations": 0,
+  "sha256": "ee3fa3577eeb632f4fcc2ab8a4e8f178c16a710ce6bfe9a0ba541027dce1c48f",
+  "visualReview": "All four final pages rendered with Poppler and inspected."
+}

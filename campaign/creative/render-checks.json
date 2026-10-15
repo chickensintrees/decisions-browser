@@ -1,0 +1,81 @@
+{
+  "iteration": "final",
+  "assets": [
+    {
+      "file": "01-youtube-thumbnail.png",
+      "source": "01-youtube-thumbnail.html",
+      "width": 1280,
+      "height": 720,
+      "bytes": 58909,
+      "layoutChecks": 5,
+      "noClipping": true,
+      "sha256": "9e2f0ce69cf340bb708fa13ce649f55d1a9b1d80c2487516561913143d3f378d"
+    },
+    {
+      "file": "02-linkedin-landscape.png",
+      "source": "02-linkedin-landscape.html",
+      "width": 1200,
+      "height": 627,
+      "bytes": 55599,
+      "layoutChecks": 6,
+      "noClipping": true,
+      "sha256": "21b3fa3f93c4ce9d7636fe7c6d728fd4f90e222e5a9c66381dfa676e1f9e7e5a"
+    },
+    {
+      "file": "03-square.png",
+      "source": "03-square.html",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 71590,
+      "layoutChecks": 7,
+      "noClipping": true,
+      "sha256": "5cdd6707d274cd41395ba0857467ab6981ec79eea41b54eb7b5b64af0dba1c64"
+    },
+    {
+      "file": "04-carousel-01-hook.png",
+      "source": "04-carousel-01-hook.html",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 73297,
+      "layoutChecks": 11,
+      "noClipping": true,
+      "sha256": "04e7b4d85c9276d621ed39f4c12ce5cc2fb2cbba42f9d5522b292a5a9b3daf49"
+    },
+    {
+      "file": "05-carousel-02-proof.png",
+      "source": "05-carousel-02-proof.html",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 149819,
+      "layoutChecks": 9,
+      "noClipping": true,
+      "sha256": "2b681a9b51a4729e7fef0fd9873714750acf61071106d88910cd93e5134453d9"
+    },
+    {
+      "file": "06-carousel-03-harness.png",
+      "source": "06-carousel-03-harness.html",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 93926,
+      "layoutChecks": 7,
+      "noClipping": true,
+      "sha256": "e12ea1be4b06151c0c73012534943a42c1c82a63c022d9160062e270c838e3de"
+    },
+    {
+      "file": "07-carousel-04-cta.png",
+      "source": "07-carousel-04-cta.html",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 79355,
+      "layoutChecks": 11,
+      "noClipping": true,
+      "sha256": "11156b7b30b9579e07d0d2bf3f428d7fe5da51486a0d72fef1a711883387b6d1"
+    }
+  ],
+  "scope": "One recorded browser workflow. Models not matched; control paths differ. Windows run included input recovery. Setup excluded.",
+  "proofSources": [
+    "assets/demo-fast-finished.png",
+    "assets/demo-both-finished.png"
+  ],
+  "proofCopiesVerified": true
+}
