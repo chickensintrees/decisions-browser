@@ -1,0 +1,144 @@
+{
+  "recordedDate": "2026-10-15",
+  "task": "Fill Search inventory with flora. Set City to Lisbon, select the Design radio option, and enable the Free cancellation checkbox BEFORE clicking Search catalog. Open Casa Flora. Confirm the detail and applied filters show query flora, city Lisbon, style Design, and the free cancellation checkbox checked.",
+  "expectedChecks": [
+    {
+      "type": "url",
+      "value": "/catalog/record/casa-flora?",
+      "match": "contains"
+    },
+    {
+      "type": "visible",
+      "selector": "#detail-name"
+    },
+    {
+      "type": "text",
+      "selector": "#detail-name",
+      "value": "Casa Flora"
+    },
+    {
+      "type": "text",
+      "selector": "#detail-city",
+      "value": "Lisbon"
+    },
+    {
+      "type": "text",
+      "selector": "#detail-style",
+      "value": "Design"
+    },
+    {
+      "type": "text",
+      "selector": "#detail-policy",
+      "value": "Free cancellation"
+    },
+    {
+      "type": "value",
+      "selector": "#detail-query",
+      "value": "flora"
+    },
+    {
+      "type": "text",
+      "selector": "#detail-filter-city",
+      "value": "Lisbon"
+    },
+    {
+      "type": "text",
+      "selector": "#detail-filter-style",
+      "value": "Design"
+    },
+    {
+      "type": "checked",
+      "selector": "#detail-free",
+      "value": true
+    },
+    {
+      "type": "count",
+      "selector": "#detail-name",
+      "value": 1
+    }
+  ],
+  "playbackSpeed": 1,
+  "width": 1920,
+  "height": 1080,
+  "durationMs": 162166.667,
+  "clock": "Page ready through the first independent observation that all 11 checks pass; setup and post-completion work excluded. Display precision 0.1 seconds.",
+  "decisions": {
+    "measuredMs": 1685.8144,
+    "fullMcpCallMs": 3277.8445,
+    "model": "gpt-6-luna",
+    "observations": "DOM text and available controls",
+    "checksPassed": 11
+  },
+  "computerUse": {
+    "measuredMs": 160166.40029999998,
+    "model": "Host agent; exact model identifier not captured",
+    "observations": "Windows accessibility and screenshots through @oai/sky",
+    "checksPassed": 11
+  },
+  "limitations": [
+    "One illustrative systems comparison; models and control paths differ.",
+    "Windows run includes input recovery and normal host-agent reasoning/tool latency.",
+    "Viewport footage omits browser chrome, OS cursor and native popup windows.",
+    "Recorder setup fixes were applied between captures; task app, controller, goal and checks were unchanged."
+  ],
+  "attempts": [
+    {
+      "name": "computer-use",
+      "selected": false,
+      "verified": false,
+      "startedAtEpochMs": null,
+      "verifiedDurationMs": null,
+      "videoStartOffsetMs": null,
+      "modelRequests": null,
+      "note": "Untimed setup stalled before any task inputs; recorder reached its initial setup limit."
+    },
+    {
+      "name": "computer-use-1",
+      "selected": true,
+      "verified": true,
+      "startedAtEpochMs": 1792048277694,
+      "verifiedDurationMs": 160166.40029999998,
+      "videoStartOffsetMs": 116708.21899414062,
+      "modelRequests": null,
+      "note": "First timed Windows Computer Use task, including the unchanged-value setter and geometry recovery."
+    },
+    {
+      "name": "decisions",
+      "selected": false,
+      "verified": true,
+      "startedAtEpochMs": 1792048496063,
+      "verifiedDurationMs": 2383.844,
+      "videoStartOffsetMs": -100.5771484375,
+      "modelRequests": 7,
+      "note": "Verified task; first captured frame was about 0.1 seconds after the clock started, so this capture was not selected."
+    },
+    {
+      "name": "decisions-complete",
+      "selected": false,
+      "verified": false,
+      "startedAtEpochMs": null,
+      "verifiedDurationMs": null,
+      "videoStartOffsetMs": null,
+      "modelRequests": 0,
+      "note": "Recording setup failed before timing and before any provider request."
+    },
+    {
+      "name": "decisions-final",
+      "selected": true,
+      "verified": true,
+      "startedAtEpochMs": 1792048956634,
+      "verifiedDurationMs": 1685.8144,
+      "videoStartOffsetMs": 201.487060546875,
+      "modelRequests": 7,
+      "note": "Verified task with complete recording coverage after the capture startup fix."
+    }
+  ],
+  "sourceHashesAtExport": {
+    "src/controller.mjs": "e9066d2dcbf519d2a6c1ee017e68e9aba08731cf301e79fd9a36c73bc993dc58",
+    "src/browser.mjs": "6c698ffa5e84417da9c089b587bfdf0c804e62e259996e8f670667fe0ae476e9",
+    "providers.mjs": "0241beb5dc6f17dd8301fa0906a402b458c383741b611c7ba8d676ccc2b2e6ed",
+    "test/fixtures/server.mjs": "cde7b88dddb649bf2994e7c25486d62807e8fdf48ed984f8d38bcb249a5492b2",
+    "scripts/record-demo.mjs": "ac147331f285074ed5f8b4e2f19d5268ac24f5da182000e5798b9d805ecbf9fc",
+    "scripts/compose-demo.mjs": "88468d80be370df7737cfe6df564bdbee6e223b37a5ac754e2d1513400f5469e"
+  }
+}

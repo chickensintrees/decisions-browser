@@ -1,0 +1,51 @@
+{
+  "release": {
+    "baseline": "Responses API in the same MCP controller",
+    "model": "gpt-6-luna",
+    "trials": 40,
+    "decisionsVerified": 20,
+    "responsesVerified": 19,
+    "upToLessMedianTimePercent": 78.8,
+    "statistic": "Median full MCP wall time of verified attempts",
+    "scope": "Two local tasks, text and image plus DOM observations, five attempts per condition, no retries",
+    "rows": [
+      {
+        "task": "catalog",
+        "observation": "text",
+        "decisionsMs": 2006.799500000001,
+        "responsesMs": 9458.62455,
+        "lessTimePercent": 78.8
+      },
+      {
+        "task": "catalog",
+        "observation": "image",
+        "decisionsMs": 2699.0111000000034,
+        "responsesMs": 9969.422099999996,
+        "lessTimePercent": 72.9
+      },
+      {
+        "task": "queue",
+        "observation": "text",
+        "decisionsMs": 1681.6053000000102,
+        "responsesMs": 6939.891500000005,
+        "lessTimePercent": 75.8
+      },
+      {
+        "task": "queue",
+        "observation": "image",
+        "decisionsMs": 2521.7543000000005,
+        "responsesMs": 8609.608299999993,
+        "lessTimePercent": 70.7
+      }
+    ]
+  },
+  "demo": {
+    "decisionsMs": 1685.8144,
+    "windowsComputerUseMs": 160166.40029999998,
+    "lessElapsedTimePercent": 98.9,
+    "checksPassedPerLane": 11,
+    "trials": 1,
+    "statistic": "Page ready through independent observation of all checks passing",
+    "scope": "One illustrative systems comparison; different models and control paths; Windows input recovery included; setup excluded"
+  }
+}
